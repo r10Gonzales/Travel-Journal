@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TravelJournal</string>
+    <string name="title">Title</string>
+    <string name="location">Location</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="save_note">Save Note</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="add_travel_note">Add Travel Note</string>
+</resources>
