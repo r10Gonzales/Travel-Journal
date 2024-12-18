@@ -8,4 +8,20 @@
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="add_travel_note">Add Travel Note</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="ini_adalah_profile_fragment">Ini adalah Profile Fragment</string>
+    <string name="add_note">Add note</string>
+
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="new_to_horizon_register">New to Horizon? Register</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="default_web_client_id">705802733378-prose66u6vbb9qp0eo13npefvqd4pjq9.apps.googleusercontent.com</string>
+
 </resources>

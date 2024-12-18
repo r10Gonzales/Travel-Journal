@@ -3,7 +3,6 @@ package com.pmb.traveljournal.activities
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.pmb.traveljournal.R
 import com.pmb.traveljournal.models.TravelNote
 import com.pmb.traveljournal.utils.FirebaseHelper
 import com.pmb.traveljournal.workers.ReminderWorker
