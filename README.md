@@ -22,7 +22,7 @@ Aplikasi Travel Journal ini memungkinkan pengguna untuk mencatat perjalanan mere
 
 ---
 
-### Cara Meng-clone Project:
+### Getting Started:
 1. **Buka Terminal atau Command Prompt** di komputer Anda.
 2. Jalankan perintah berikut untuk meng-clone repositori:
    ```bash
@@ -47,7 +47,7 @@ Aplikasi Travel Journal ini memungkinkan pengguna untuk mencatat perjalanan mere
 
 ---
 
-### Cara Mendapatkan Perubahan Jika Sudah Melakukan Clone:
+### Getting Changes If You Have Cloned:
 Jika Anda sudah pernah meng-clone project sebelumnya dan ingin mendapatkan perubahan terbaru dari repositori, ikuti langkah-langkah berikut:
 
 1. **Buka Terminal atau Command Prompt** dan arahkan ke direktori project:
