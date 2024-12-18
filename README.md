@@ -22,7 +22,7 @@ Aplikasi Travel Journal ini memungkinkan pengguna untuk mencatat perjalanan mere
 
 ---
 
-### Getting Started:
+### Cara Meng-clone Project:
 1. **Buka Terminal atau Command Prompt** di komputer Anda.
 2. Jalankan perintah berikut untuk meng-clone repositori:
    ```bash
@@ -44,5 +44,34 @@ Aplikasi Travel Journal ini memungkinkan pengguna untuk mencatat perjalanan mere
 
 6. **Jalankan Aplikasi**:
    - Setelah Firebase terkonfigurasi, Anda dapat menjalankan aplikasi di perangkat Android atau emulator.
+
+---
+
+### Cara Mendapatkan Perubahan Jika Sudah Melakukan Clone:
+Jika Anda sudah pernah meng-clone project sebelumnya dan ingin mendapatkan perubahan terbaru dari repositori, ikuti langkah-langkah berikut:
+
+1. **Buka Terminal atau Command Prompt** dan arahkan ke direktori project:
+   ```bash
+   cd Travel-Journal
+   ```
+
+2. **Periksa status branch** untuk memastikan Anda berada di branch yang benar (misalnya `main`):
+   ```bash
+   git status
+   ```
+
+3. **Tarik perubahan terbaru** dari repositori dengan perintah `git pull`:
+   ```bash
+   git pull origin main
+   ```
+   Perintah ini akan mengunduh perubahan terbaru dari branch `main` di GitHub dan menggabungkannya dengan branch lokal Anda.
+
+4. Jika ada konflik, Anda akan diminta untuk menyelesaikan konflik tersebut. Setelah konflik diselesaikan, lakukan commit dan push jika diperlukan.
+
+5. **Sinkronkan Firebase (Jika Diperlukan)**:
+   Jika ada pembaruan terkait konfigurasi Firebase (misalnya perubahan pada **`google-services.json`**), pastikan untuk memperbarui file tersebut dengan versi terbaru yang diberikan oleh pengelola repositori.
+
+6. **Jalankan Aplikasi**:
+   Setelah menarik perubahan terbaru, Anda dapat menjalankan kembali aplikasi untuk melihat perubahan yang telah diterapkan.
 
 ---
