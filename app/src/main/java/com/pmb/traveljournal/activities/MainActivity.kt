@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         // Navigate to Add Travel Note activity
-        binding.addNoteButton.setOnClickListener {
+        binding.floatingActionButton.setOnClickListener {
             val intent = Intent(this, AddTravelNoteActivity::class.java)
             startActivity(intent)
         }

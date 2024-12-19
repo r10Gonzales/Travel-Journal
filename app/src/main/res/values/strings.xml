@@ -23,5 +23,11 @@
     <string name="new_to_horizon_register">New to Horizon? Register</string>
     <string name="login_with_google">Login with Google</string>
     <string name="default_web_client_id">705802733378-prose66u6vbb9qp0eo13npefvqd4pjq9.apps.googleusercontent.com</string>
+    <string name="register">Register</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="fab_content_desc">Tambahkan Catatan Perjalanan</string>
 
 </resources>
