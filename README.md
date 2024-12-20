@@ -126,3 +126,11 @@ Jika Anda ingin membuat perubahan pada project ini, disarankan untuk membuat bra
 Menggunakan branch baru, untuk memastikan bahwa perubahan tidak langsung memengaruhi branch `main`.
 
 ---
+
+## Contributors
+
+Terima kasih kepada para kontributor yang telah berkontribusi pada proyek ini!
+- [**Rio Gonzales**](https://github.com/riogonzales)
+- [**Tegar Satria**](https://github.com/TegarSa)
+- [**Andrean Bagus**](https://github.com/AndreanBagus)
+- [**Satria Alukman**](https://github.com/SatriaAlukman)
