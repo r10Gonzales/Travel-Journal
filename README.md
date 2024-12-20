@@ -75,3 +75,54 @@ Jika Anda sudah pernah meng-clone project sebelumnya dan ingin mendapatkan perub
    Setelah menarik perubahan terbaru, Anda dapat menjalankan kembali aplikasi untuk melihat perubahan yang telah diterapkan.
 
 ---
+
+### Membuat Branch Baru untuk Perubahan:
+Jika Anda ingin membuat perubahan pada project ini, disarankan untuk membuat branch baru terlebih dahulu. Ini akan membantu menjaga branch `main` tetap stabil dan memungkinkan Anda untuk bekerja pada fitur atau perbaikan tertentu secara terpisah.
+
+1. **Buka Terminal atau Command Prompt** dan arahkan ke direktori project:
+   ```bash
+   cd Travel-Journal
+   ```
+
+2. **Periksa status branch** untuk memastikan Anda berada di branch yang benar (misalnya `main`):
+   ```bash
+   git status
+   ```
+
+3. **Pastikan branch `main` sudah terupdate** dengan menarik perubahan terbaru dari repositori:
+   ```bash
+   git pull origin main
+   ```
+
+4. **Buat branch baru** berdasarkan `main` untuk perubahan yang ingin Anda lakukan. Gunakan format nama branch yang jelas dan deskriptif, seperti:
+   ```bash
+   git checkout -b feature-nama-fitur-atau-perubahan
+   ```
+   Contoh:
+   ```bash
+   git checkout -b feature-add-user-specific-notes
+   ```
+
+5. **Lakukan perubahan yang diperlukan** di branch baru tersebut. Setelah selesai melakukan perubahan, tambahkan file yang telah diubah ke staging area:
+   ```bash
+   git add .
+   ```
+
+6. **Lakukan commit** dengan pesan yang jelas menjelaskan perubahan yang dilakukan:
+   ```bash
+   git commit -m "Menambahkan fitur catatan khusus pengguna"
+   ```
+
+7. **Push branch baru** ke repositori GitHub:
+   ```bash
+   git push origin feature-nama-fitur-atau-perubahan
+   ```
+
+8. **Buat Pull Request**:
+   - Setelah branch baru dipush ke GitHub, buka repositori di GitHub.
+   - Pilih branch baru yang Anda buat dan klik tombol **"Compare & pull request"**.
+   - Berikan deskripsi yang jelas tentang perubahan yang Anda buat dan kirimkan pull request untuk direview.
+
+Menggunakan branch baru, untuk memastikan bahwa perubahan tidak langsung memengaruhi branch `main`.
+
+---
