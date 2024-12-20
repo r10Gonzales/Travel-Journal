@@ -1,6 +1,7 @@
 package com.pmb.traveljournal.utils
 
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.pmb.traveljournal.models.TravelNote
 
@@ -8,11 +9,12 @@ class FirebaseHelper {
 
     private val database = FirebaseDatabase.getInstance().getReference("TravelNotes")
 
-    fun addTravelNote(note: TravelNote) {
-        val noteId = database.push().key
+    // Menyimpan catatan berdasarkan UID pengguna
+    fun addTravelNote(userId: String, note: TravelNote) {
+        val noteId = database.child(userId).push().key
         if (noteId != null) {
             note.id = noteId
-            database.child(noteId).setValue(note)
+            database.child(userId).child(noteId).setValue(note)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Log.d("FirebaseHelper", "Data berhasil disimpan dengan ID: $noteId")
@@ -23,11 +25,12 @@ class FirebaseHelper {
         }
     }
 
+    // Mendapatkan catatan berdasarkan UID pengguna
+    fun getTravelNotes(userId: String) = database.child(userId)
 
-    fun getTravelNotes() = database
-
-    fun updateTravelNote(id: String, updatedNote: TravelNote) {
-        database.child(id).setValue(updatedNote)
+    // Memperbarui catatan
+    fun updateTravelNote(userId: String, id: String, updatedNote: TravelNote) {
+        database.child(userId).child(id).setValue(updatedNote)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d("FirebaseHelper", "Data berhasil diperbarui")
@@ -37,9 +40,9 @@ class FirebaseHelper {
             }
     }
 
-
-    fun deleteTravelNote(id: String) {
-        database.child(id).removeValue()
+    // Menghapus catatan
+    fun deleteTravelNote(userId: String, id: String) {
+        database.child(userId).child(id).removeValue()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d("FirebaseHelper", "Data berhasil dihapus")
@@ -48,5 +51,4 @@ class FirebaseHelper {
                 }
             }
     }
-
 }

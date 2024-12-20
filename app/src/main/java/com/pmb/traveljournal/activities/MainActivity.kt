@@ -2,8 +2,10 @@ package com.pmb.traveljournal.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -35,25 +37,38 @@ class MainActivity : AppCompatActivity() {
         }
         binding.recyclerView.adapter = adapter
 
-        // Load travel notes from Firebase
-        firebaseHelper.getTravelNotes().addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                travelNotes.clear()
-                snapshot.children.forEach { child ->
-                    val note = child.getValue(TravelNote::class.java)
-                    if (note != null) {
-                        travelNotes.add(note)
+        // Mendapatkan userId dari Firebase Authentication
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val userId = currentUser?.uid
+
+        if (userId != null) {
+            // Load travel notes dari Firebase berdasarkan userId
+            firebaseHelper.getTravelNotes(userId).addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    travelNotes.clear()
+                    snapshot.children.forEach { child ->
+                        val note = child.getValue(TravelNote::class.java)
+                        if (note != null) {
+                            travelNotes.add(note)
+                        }
                     }
+                    adapter.notifyDataSetChanged()
                 }
-                adapter.notifyDataSetChanged()
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                // Handle error
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle error
+                }
+            })
+        } else {
+            // Jika pengguna tidak login
+            // Arahkan pengguna ke halaman login
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
-        // Navigate to Add Travel Note activity
+        // Navigasi ke Add Travel Note activity
         binding.floatingActionButton.setOnClickListener {
             val intent = Intent(this, AddTravelNoteActivity::class.java)
             startActivity(intent)
