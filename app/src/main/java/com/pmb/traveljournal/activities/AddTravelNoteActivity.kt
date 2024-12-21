@@ -8,6 +8,7 @@ import com.pmb.traveljournal.utils.FirebaseHelper
 import com.pmb.traveljournal.workers.ReminderWorker
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import com.google.firebase.auth.FirebaseAuth
 import com.pmb.traveljournal.databinding.ActivityAddTravelNoteBinding
 import java.util.concurrent.TimeUnit
 
@@ -18,7 +19,6 @@ class AddTravelNoteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Menggunakan View Binding untuk mengakses elemen UI
         binding = ActivityAddTravelNoteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -34,9 +34,18 @@ class AddTravelNoteActivity : AppCompatActivity() {
                     location = location,
                     date = System.currentTimeMillis().toString()  // Use current time as the date
                 )
-                firebaseHelper.addTravelNote(newNote)
-                Toast.makeText(this, "Note added successfully!", Toast.LENGTH_SHORT).show()
-                finish() // Close activity and return to the main activity
+
+                // Mendapatkan UID pengguna yang sedang login
+                val currentUser = FirebaseAuth.getInstance().currentUser
+                val userId = currentUser?.uid
+
+                if (userId != null) {
+                    firebaseHelper.addTravelNote(userId, newNote)
+                    Toast.makeText(this, "Note added successfully!", Toast.LENGTH_SHORT).show()
+                    finish()
+                } else {
+                    Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
