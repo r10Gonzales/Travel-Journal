@@ -29,5 +29,9 @@
     <string name="already_have_an_account_login">Already have an account? Login</string>
     <string name="create_an_account">Create an Account</string>
     <string name="fab_content_desc">Tambahkan Catatan Perjalanan</string>
+    <string name="user_name">User Name</string>
+    <string name="user_example_com">user@example.com</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Logout</string>
 
 </resources>
