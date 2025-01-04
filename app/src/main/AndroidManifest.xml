@@ -25,12 +25,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.TravelNoteDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.AddTravelNoteActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.MainActivity"
             android:exported="false" />
     </application>

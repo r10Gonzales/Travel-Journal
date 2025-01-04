@@ -6,7 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".activities.TravelNoteDetailActivity">
+    android:background="@android:color/white"
+    tools:context=".fragment.TravelNoteDetailFragment">
+
+    <!-- AppBarLayout with Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar with back arrow -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_close"
+            app:navigationIconTint="@color/suva_grey"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Title EditText pakai Material Design -->
     <com.google.android.material.textfield.TextInputLayout
@@ -15,12 +32,14 @@
         android:layout_marginTop="8dp"
         app:hintAnimationEnabled="true"
         app:boxStrokeWidth="2dp"
-        app:boxBackgroundMode="outline">
+        app:boxBackgroundMode="outline"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/titleEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/solitude"
             android:hint="@string/title"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -33,12 +52,14 @@
         android:layout_marginTop="8dp"
         app:hintAnimationEnabled="true"
         app:boxStrokeWidth="2dp"
-        app:boxBackgroundMode="outline">
+        app:boxBackgroundMode="outline"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/descriptionEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/solitude"
             android:hint="@string/description"
             android:textSize="16sp"
             android:inputType="textMultiLine"
@@ -53,12 +74,14 @@
         android:layout_marginTop="8dp"
         app:hintAnimationEnabled="true"
         app:boxStrokeWidth="2dp"
-        app:boxBackgroundMode="outline">
+        app:boxBackgroundMode="outline"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/locationEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/solitude"
             android:hint="@string/location"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -70,10 +93,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:text="@string/update"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/witch_haze"
-        app:icon="@drawable/ic_update"
+        android:text="@string/edit_note"
+        android:backgroundTint="@color/sushi"
+        android:textColor="@color/white"
+        app:icon="@drawable/ic_edit_note"
         app:iconGravity="textStart"
         app:cornerRadius="8dp"
         app:rippleColor="?attr/colorControlHighlight" />
@@ -86,8 +109,8 @@
         android:layout_marginTop="16dp"
         android:layout_gravity="center"
         android:text="@string/delete"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/witch_haze"
+        android:backgroundTint="@color/dark_orchid"
+        android:textColor="@color/white"
         app:icon="@drawable/ic_delete"
         app:iconGravity="textStart"
         app:cornerRadius="8dp"

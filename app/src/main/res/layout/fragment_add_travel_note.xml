@@ -6,7 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".activities.AddTravelNoteActivity">
+    android:background="@android:color/white"
+    tools:context=".fragment.AddTravelNoteFragment">
+
+    <!-- AppBarLayout with Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar with back arrow -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_close"
+            app:navigationIconTint="@color/suva_grey"
+            app:titleTextColor="@android:color/black" />
+    </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Title EditText with Material Design -->
     <com.google.android.material.textfield.TextInputLayout
@@ -15,7 +33,9 @@
         android:layout_marginTop="8dp"
         app:hintAnimationEnabled="true"
         app:boxStrokeWidth="2dp"
-        app:boxBackgroundMode="outline">
+        app:boxBackgroundMode="outline"
+        android:background="@color/white"
+        app:hintTextColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/titleEditText"
@@ -23,7 +43,11 @@
             android:layout_height="wrap_content"
             android:hint="@string/title"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:background="@color/solitude"
+            android:inputType="text" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Description EditText with Material Design -->
@@ -33,7 +57,9 @@
         android:layout_marginTop="8dp"
         app:hintAnimationEnabled="true"
         app:boxStrokeWidth="2dp"
-        app:boxBackgroundMode="outline">
+        app:boxBackgroundMode="outline"
+        android:background="@color/white"
+        app:hintTextColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/descriptionEditText"
@@ -41,6 +67,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/description"
             android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:background="@color/solitude"
             android:inputType="textMultiLine"
             android:lines="4"
             android:maxLines="6" />
@@ -53,14 +81,18 @@
         android:layout_marginTop="8dp"
         app:hintAnimationEnabled="true"
         app:boxStrokeWidth="2dp"
-        app:boxBackgroundMode="outline">
+        app:boxBackgroundMode="outline"
+        android:background="@color/white"
+        app:hintTextColor="@android:color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/locationEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/location"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:background="@color/solitude"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Save Button with Material Design -->
@@ -71,8 +103,8 @@
         android:layout_marginTop="16dp"
         android:layout_gravity="center"
         android:text="@string/save_note"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/witch_haze"
+        android:backgroundTint="@color/sushi"
+        android:textColor="@color/white"
         app:icon="@drawable/ic_save"
         app:iconGravity="textStart"
         app:cornerRadius="8dp"
