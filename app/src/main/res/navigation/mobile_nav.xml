@@ -9,7 +9,14 @@
         android:id="@+id/nav_home"
         android:name="com.pmb.traveljournal.fragment.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_nav_detail"
+            app:destination="@id/nav_detail"/>
+        <action
+            android:id="@+id/action_nav_home_to_addTravelNoteFragment"
+            app:destination="@id/addTravelNoteFragment"/>
+    </fragment>
 
     <fragment
         android:id="@+id/nav_profile"
@@ -17,4 +24,22 @@
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
 
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.pmb.traveljournal.fragment.TravelNoteDetailFragment"
+        android:label="@string/detail_labeled_fragment"
+        tools:layout="@layout/fragment_travel_note_detail">
+        <argument
+            android:name="noteId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_travelNoteDetailFragment_to_homeFragment"
+            app:destination="@id/nav_home"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/addTravelNoteFragment"
+        android:name="com.pmb.traveljournal.fragment.AddTravelNoteFragment"
+        android:label="@string/add_travel_note"
+        tools:layout="@layout/fragment_add_travel_note" />
 </navigation>

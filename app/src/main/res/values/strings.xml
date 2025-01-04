@@ -5,8 +5,7 @@
     <string name="date">Date</string>
     <string name="description">Description</string>
     <string name="save_note">Save Note</string>
-    <string name="update">Update</string>
-    <string name="delete">Delete</string>
+    <string name="delete">Delete Note</string>
     <string name="add_travel_note">Add Travel Note</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -29,5 +28,12 @@
     <string name="already_have_an_account_login">Already have an account? Login</string>
     <string name="create_an_account">Create an Account</string>
     <string name="fab_content_desc">Tambahkan Catatan Perjalanan</string>
+    <string name="hello_my_notes">Hello,\nMy Notes</string>
+    <string name="detail_labeled_fragment">Detail Labeled Fragment</string>
+    <string name="name">Name</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="logout">Logout</string>
+    <string name="edit_note">Edit Note</string>
 
 </resources>
