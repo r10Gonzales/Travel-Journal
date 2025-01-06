@@ -36,4 +36,7 @@
     <string name="logout">Logout</string>
     <string name="edit_note">Edit Note</string>
 
+    <string name="save">Save</string>
+    <string name="delete_profile">Delete Profile</string>
+
 </resources>
