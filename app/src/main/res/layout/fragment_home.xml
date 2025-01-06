@@ -9,9 +9,6 @@
     tools:context=".fragment.HomeFragment">
 
     <!-- TextView untuk menampilkan judul halaman -->
-
-    <!-- RecyclerView untuk menampilkan daftar catatan -->
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -26,7 +23,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- RecyclerView untuk menampilkan daftar catatan -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
@@ -47,7 +44,7 @@
         android:contentDescription="@string/fab_content_desc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_plus"
+        app:srcCompat="@drawable/ic_add"
         app:backgroundTint="@color/slate_blue"
         app:tint="@android:color/white" />
 

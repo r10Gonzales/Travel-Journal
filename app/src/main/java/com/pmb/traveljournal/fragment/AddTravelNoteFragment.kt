@@ -12,6 +12,9 @@ import com.pmb.traveljournal.databinding.FragmentAddTravelNoteBinding
 import com.google.firebase.auth.FirebaseAuth
 import androidx.navigation.fragment.findNavController
 import androidx.activity.addCallback
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class AddTravelNoteFragment : Fragment() {
     private var _binding: FragmentAddTravelNoteBinding? = null
@@ -45,11 +48,14 @@ class AddTravelNoteFragment : Fragment() {
             val location = binding.locationEditText.text.toString()
 
             if (title.isNotBlank() && description.isNotBlank() && location.isNotBlank()) {
+                val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+                val currentDate = dateFormat.format(Date())
+
                 val newNote = TravelNote(
                     title = title,
                     description = description,
                     location = location,
-                    date = System.currentTimeMillis().toString()  // Use current time as the date
+                    date = currentDate  // Use formatted date
                 )
 
                 val currentUser = FirebaseAuth.getInstance().currentUser

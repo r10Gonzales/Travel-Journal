@@ -18,12 +18,20 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.pmb.traveljournal.R
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class TravelNoteDetailFragment : Fragment() {
 
+    // Instance objek binding yang sesuai dengan fragment
     private var _binding: FragmentTravelNoteDetailBinding? = null
     private val binding get() = _binding!!
+
+    // Ambil argumen navigasi yang dilewatkan ke fragment ini
     private val args: TravelNoteDetailFragmentArgs by navArgs()
+
+    // Instance FirebaseHelper untuk berinteraksi dengan Firebase
     private val firebaseHelper = FirebaseHelper()
 
     private lateinit var noteId: String
@@ -39,18 +47,20 @@ class TravelNoteDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Handle back button click
+        // Tangani klik tombol kembali
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
 
-        // Setup close icon click listener
+        // Atur listener klik ikon close untuk navigasi kembali ke fragment home
         binding.topAppBar.setNavigationOnClickListener {
             findNavController().navigate(R.id.action_travelNoteDetailFragment_to_homeFragment)
         }
 
+        // Ambil ID catatan dari argumen
         noteId = args.noteId
 
+        // Muat detail catatan jika ID catatan valid
         if (noteId.isNotEmpty()) {
             loadNoteDetails()
         } else {
@@ -58,15 +68,18 @@ class TravelNoteDetailFragment : Fragment() {
             findNavController().popBackStack()
         }
 
+        // Atur listener klik untuk tombol update
         binding.updateButton.setOnClickListener {
             updateNote()
         }
 
+        // Atur listener klik untuk tombol delete
         binding.deleteButton.setOnClickListener {
             confirmDeleteNote()
         }
     }
 
+    // Fungsi untuk memuat detail catatan dari Firebase
     private fun loadNoteDetails() {
         val currentUser = FirebaseAuth.getInstance().currentUser
         val userId = currentUser?.uid
@@ -77,9 +90,11 @@ class TravelNoteDetailFragment : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val note = snapshot.getValue(TravelNote::class.java)
                     if (note != null) {
+                        // Isi UI dengan detail catatan
                         binding.titleEditText.setText(note.title)
                         binding.descriptionEditText.setText(note.description)
                         binding.locationEditText.setText(note.location)
+                        // Asumsikan note.date sudah diformat sebagai "dd-MM-yyyy"
                     }
                 }
 
@@ -90,18 +105,22 @@ class TravelNoteDetailFragment : Fragment() {
         }
     }
 
+    // Fungsi untuk memperbarui detail catatan di Firebase
     private fun updateNote() {
         val updatedTitle = binding.titleEditText.text.toString()
         val updatedDescription = binding.descriptionEditText.text.toString()
         val updatedLocation = binding.locationEditText.text.toString()
 
         if (updatedTitle.isNotBlank() && updatedDescription.isNotBlank() && updatedLocation.isNotBlank()) {
+            val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+            val currentDate = dateFormat.format(Date())
+
             val updatedNote = TravelNote(
                 id = noteId,
                 title = updatedTitle,
                 description = updatedDescription,
                 location = updatedLocation,
-                date = System.currentTimeMillis().toString()
+                date = currentDate  // Gunakan tanggal yang sudah diformat
             )
 
             val currentUser = FirebaseAuth.getInstance().currentUser
@@ -119,6 +138,7 @@ class TravelNoteDetailFragment : Fragment() {
         }
     }
 
+    // Fungsi untuk mengonfirmasi penghapusan catatan dengan AlertDialog
     private fun confirmDeleteNote() {
         AlertDialog.Builder(requireContext())
             .setTitle("Delete Note")
@@ -130,6 +150,7 @@ class TravelNoteDetailFragment : Fragment() {
             .show()
     }
 
+    // Fungsi untuk menghapus catatan dari Firebase
     private fun deleteNote() {
         val currentUser = FirebaseAuth.getInstance().currentUser
         val userId = currentUser?.uid
@@ -143,6 +164,7 @@ class TravelNoteDetailFragment : Fragment() {
         }
     }
 
+    // Lepaskan binding saat view dihancurkan
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

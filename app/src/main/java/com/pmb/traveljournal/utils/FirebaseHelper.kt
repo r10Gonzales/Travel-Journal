@@ -1,7 +1,6 @@
 package com.pmb.traveljournal.utils
 
 import android.util.Log
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.pmb.traveljournal.models.TravelNote
 
